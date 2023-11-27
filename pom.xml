@@ -14,7 +14,7 @@
     <name>personal-backend</name>
     <description>All Services Related To My Personal Applications</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven-compiler-plugin>3.11.0</maven-compiler-plugin>
     </properties>
     <dependencies>
