@@ -63,7 +63,7 @@ public class EmployeeController {
 				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
 		employee.setFirstName(employeeDetails.getFirstName());
 		employee.setLastName(employeeDetails.getLastName());
-		employee.setEmailId(employeeDetails.getEmailId());
+		employee.setEmail(employeeDetails.getEmail());
 		Employee updatedEmployee = employeeRepository.save(employee);
 		return ResponseEntity.ok(updatedEmployee);
 	}
