@@ -1,9 +1,8 @@
---delete if any tables are exists in db schema already.
---drop table userinfo
---drop table employees;
---drop table departments;
---drop table positions;
---drop table salaries;
+drop table userinfo;
+drop table employees;
+drop table departments;
+drop table positions;
+drop table salaries;
 
 CREATE TABLE UserInfo (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -46,3 +45,7 @@ CREATE TABLE Salaries (
     FOREIGN KEY (employee_id) REFERENCES Employees(employee_id)
 );
 
+-- Add Admin User Initially in Db.
+INSERT INTO employee_management.userinfo
+(id, name, email, password, roles)
+VALUES(0, 'admin', 'admin@gmail.com', 'admin', 'ADMIN,USER');
