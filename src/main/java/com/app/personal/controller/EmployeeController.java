@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.app.personal.model.UserInfo;
 import com.app.personal.repository.EmployeeRepository;
+import com.app.personal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,9 +29,13 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	@Autowired
+	private UserRepository userRepository;
+
 	@GetMapping("/welcome")
-	public String welcome(){
-		return "Welcome To Backend Services I'm available For all";
+	public UserInfo welcome(){
+		UserInfo userInfo = userRepository.getUserByFirstNameAndId();
+		return userInfo;
 	}
 
 	// get all employees
