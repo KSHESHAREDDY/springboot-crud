@@ -12,4 +12,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     @Query(value = "select new com.app.personal.dto.EmployeeDTO(e.id, e.firstName, e.lastName, e.email, e.phone, e.hireDate) from Employee e " +
             "where e.employeeId  = :id and e.firstName = :firstName")
     public EmployeeDTO getEmployeeByFirstNameAndId(Long id, String firstName);
+    @Query(value = "select new com.app.personal.dto.EmployeeDTO(e.id, e.firstName, e.lastName, e.email, e.phone, e.hireDate, s.salaryAmount, s.effectiveDate) from Employee e join Salary s on e.employeeId = s.employee.employeeId where e.firstName = :firstName ")
+    public EmployeeDTO getAllEmployeeDetails(String firstName);
 }

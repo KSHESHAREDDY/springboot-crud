@@ -40,6 +40,12 @@ public class EmployeeController {
 		return employeeDTO;
 	}
 
+	@GetMapping("/employee/{firstName}")
+	public EmployeeDTO getAllEmployeeDetails(@RequestBody EmployeeRequestDTO employeeRequestDTO) {
+		EmployeeDTO employeeDTO = employeeRepository.getAllEmployeeDetails(employeeRequestDTO.getFirstName());
+		return employeeDTO;
+	}
+
 	// get all employees
 	@GetMapping("/employees")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

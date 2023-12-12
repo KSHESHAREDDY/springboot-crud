@@ -15,9 +15,6 @@ public class Position {
     private String positionTitle;
     private String positionDescription;
 
-    @OneToMany(mappedBy = "position", fetch = FetchType.LAZY)
-    private List<Employee> employees;
-
     public Long getPositionId() {
         return positionId;
     }
@@ -40,14 +37,6 @@ public class Position {
 
     public void setPositionDescription(String positionDescription) {
         this.positionDescription = positionDescription;
-    }
-
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
     }
 }
 

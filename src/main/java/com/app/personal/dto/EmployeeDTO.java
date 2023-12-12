@@ -1,5 +1,10 @@
 package com.app.personal.dto;
 
+import com.app.personal.model.Department;
+import com.app.personal.model.Position;
+import com.app.personal.model.Salary;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class EmployeeDTO {
@@ -9,6 +14,37 @@ public class EmployeeDTO {
     private String email;
     private String phone;
     private LocalDate hireDate;
+
+    private BigDecimal salaryAmount;
+
+    private LocalDate effectiveDate;
+
+    public BigDecimal getSalaryAmount() {
+        return salaryAmount;
+    }
+
+    public void setSalaryAmount(BigDecimal salaryAmount) {
+        this.salaryAmount = salaryAmount;
+    }
+
+    public LocalDate getEffectiveDate() {
+        return effectiveDate;
+    }
+
+    public void setEffectiveDate(LocalDate effectiveDate) {
+        this.effectiveDate = effectiveDate;
+    }
+
+    public EmployeeDTO(Long employeeId, String firstName, String lastName, String email, String phone, LocalDate hireDate, BigDecimal salaryAmount, LocalDate effectiveDate) {
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.hireDate = hireDate;
+        this.salaryAmount = salaryAmount;
+        this.effectiveDate = effectiveDate;
+    }
 
     public EmployeeDTO(Long employeeId, String firstName) {
         this.employeeId = employeeId;
