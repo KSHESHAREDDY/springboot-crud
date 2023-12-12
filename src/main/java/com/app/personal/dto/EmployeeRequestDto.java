@@ -1,6 +1,6 @@
 package com.app.personal.dto;
 
-public class EmployeeRequestDTO {
+public class EmployeeRequestDto {
     public Long id;
     public String firstName;
 

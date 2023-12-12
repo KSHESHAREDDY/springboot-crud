@@ -1,8 +1,9 @@
 package com.app.personal.controller;
 
-import com.app.personal.dto.EmployeeDTO;
-import com.app.personal.dto.EmployeeRequestDTO;
+import com.app.personal.dto.EmployeeDto;
+import com.app.personal.dto.EmployeeRequestDto;
 import com.app.personal.exception.ResourceNotFoundException;
+import com.app.personal.exception.ServiceException;
 import com.app.personal.model.Employee;
 import com.app.personal.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,26 +24,26 @@ public class EmployeeController {
 
 	@GetMapping("/welcome")
 	public String welcome(){
-		return "I'm Free To all";
+		throw new ServiceException("Exception at Service");
 	}
 
 	@GetMapping("/employee/{id}/{firstName}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public EmployeeDTO getEmployeeByIDAndFirstName(@PathVariable  Long id, @PathVariable String firstName) {
-		EmployeeDTO employeeDTO = employeeRepository.getEmployeeByFirstNameAndId(id , firstName);
+	public EmployeeDto getEmployeeByIDAndFirstName(@PathVariable  Long id, @PathVariable String firstName) {
+		EmployeeDto employeeDTO = employeeRepository.getEmployeeByFirstNameAndId(id , firstName);
 		return employeeDTO;
 	}
 
 	@GetMapping("/employee")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public EmployeeDTO getEmployeeByIDAndFirstNameFromBody(@RequestBody EmployeeRequestDTO employeeRequestDTO) {
-		EmployeeDTO employeeDTO = employeeRepository.getEmployeeByFirstNameAndId(employeeRequestDTO.getId(), employeeRequestDTO.getFirstName());
+	public EmployeeDto getEmployeeByIDAndFirstNameFromBody(@RequestBody EmployeeRequestDto employeeRequestDTO) {
+		EmployeeDto employeeDTO = employeeRepository.getEmployeeByFirstNameAndId(employeeRequestDTO.getId(), employeeRequestDTO.getFirstName());
 		return employeeDTO;
 	}
 
 	@GetMapping("/employee/{firstName}")
-	public EmployeeDTO getAllEmployeeDetails(@RequestBody EmployeeRequestDTO employeeRequestDTO) {
-		EmployeeDTO employeeDTO = employeeRepository.getAllEmployeeDetails(employeeRequestDTO.getFirstName());
+	public EmployeeDto getAllEmployeeDetails(@RequestBody EmployeeRequestDto employeeRequestDTO) {
+		EmployeeDto employeeDTO = employeeRepository.getAllEmployeeDetails(employeeRequestDTO.getFirstName());
 		return employeeDTO;
 	}
 

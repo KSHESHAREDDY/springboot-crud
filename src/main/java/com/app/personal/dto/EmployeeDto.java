@@ -1,13 +1,9 @@
 package com.app.personal.dto;
 
-import com.app.personal.model.Department;
-import com.app.personal.model.Position;
-import com.app.personal.model.Salary;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class EmployeeDTO {
+public class EmployeeDto {
     private Long employeeId;
     private String firstName;
     private String lastName;
@@ -35,7 +31,7 @@ public class EmployeeDTO {
         this.effectiveDate = effectiveDate;
     }
 
-    public EmployeeDTO(Long employeeId, String firstName, String lastName, String email, String phone, LocalDate hireDate, BigDecimal salaryAmount, LocalDate effectiveDate) {
+    public EmployeeDto(Long employeeId, String firstName, String lastName, String email, String phone, LocalDate hireDate, BigDecimal salaryAmount, LocalDate effectiveDate) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -46,12 +42,12 @@ public class EmployeeDTO {
         this.effectiveDate = effectiveDate;
     }
 
-    public EmployeeDTO(Long employeeId, String firstName) {
+    public EmployeeDto(Long employeeId, String firstName) {
         this.employeeId = employeeId;
         this.firstName = firstName;
     }
 
-    public EmployeeDTO(Long employeeId, String firstName, String lastName, String email, String phone, LocalDate hireDate) {
+    public EmployeeDto(Long employeeId, String firstName, String lastName, String email, String phone, LocalDate hireDate) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
